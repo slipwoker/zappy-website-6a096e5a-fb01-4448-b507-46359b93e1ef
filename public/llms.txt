@@ -1,0 +1,52 @@
+# Business — Generative Engine Optimization Map
+
+> A Restaurant/Italian Cuisine business.
+
+---
+
+## Pages
+
+### Home
+https://pastella-6a096e5a.zappy5.app
+
+### אודות
+https://pastella-6a096e5a.zappy5.app/%D7%90%D7%95%D7%93%D7%95%D7%AA
+מסעדה איטלקית המתמחה במנות פסטה ביתיות ומרכיבים טריים, המציעה חוויה קולינרית אותנטית עם דגש על איכות ומסורת
+
+### אירועים
+https://pastella-6a096e5a.zappy5.app/%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D
+מסעדה איטלקית המתמחה באירועים פרטיים ובישול אותנטי
+
+### גלריה
+https://pastella-6a096e5a.zappy5.app/%D7%92%D7%9C%D7%A8%D7%99%D7%94
+
+## Legal & Policy
+
+### Privacy Policy
+https://pastella-6a096e5a.zappy5.app/privacy
+Information about how user data is collected, stored, and protected.
+
+### Terms & Conditions
+https://pastella-6a096e5a.zappy5.app/terms
+Legal terms describing service usage, rights, and policies.
+
+### Accessibility Statement
+https://pastella-6a096e5a.zappy5.app/accessibility
+Information about WCAG compliance and accessibility features.
+
+---
+
+# Business Context (for LLM understanding)
+
+## About Business
+Business is a business in the Restaurant/Italian Cuisine industry.
+
+## Industry
+Restaurant/Italian Cuisine
+
+---
+
+# Additional Resources
+
+- **Sitemap**: https://pastella-6a096e5a.zappy5.app/sitemap.xml
+- **Robots.txt**: https://pastella-6a096e5a.zappy5.app/robots.txt

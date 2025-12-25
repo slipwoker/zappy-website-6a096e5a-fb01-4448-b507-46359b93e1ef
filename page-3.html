@@ -1,0 +1,300 @@
+<!DOCTYPE html><html lang="he" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Pastella - אירועים</title><style>:root{--primary-color:#6b8e4a;--secondary-color:#2c2c2c;--text-color:#333;--white:#ffffff;--light-gray:#f5f5f5;--dark-gray:#666}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;line-height:1.6;color:var(--text-color);direction:rtl}header{position:fixed;top:0;width:100%;background:rgba(0,0,0,0.9);z-index:1000;padding:10px 0}nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 20px}.contact-info{color:var(--white);font-size:14px;display:flex;align-items:center;gap:10px}.nav-links{display:flex;list-style:none;gap:30px}.nav-links a{color:var(--white);text-decoration:none;font-size:16px;transition:color 0.3s}.nav-links a:hover{color:var(--primary-color)}.mobile-menu-btn{display:none;background:none;border:none;color:var(--white);font-size:24px;cursor:pointer}.hero-section{height:100vh;background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"%3E%3Crect fill="%23f0f0f0" width="1920" height="1080"/%3E%3C/svg%3E');background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;position:relative}.hero-content{text-align:center;color:var(--white);max-width:800px;padding:0 20px}.hero-content h1{font-size:4rem;margin-bottom:20px;font-weight:bold}.hero-content p{font-size:1.5rem;margin-bottom:30px}.main-content{padding:80px 0;background:var(--white)}.container{max-width:1200px;margin:0 auto;padding:0 20px}.events-section{display:flex;gap:40px;align-items:center;margin-bottom:80px}.events-image{flex:1}.events-image img{width:100%;height:400px;object-fit:cover;border-radius:10px}.events-content{flex:1}.events-content h2{font-size:2.5rem;color:var(--secondary-color);margin-bottom:30px}.events-content p{font-size:1.2rem;line-height:1.8;margin-bottom:30px;color:var(--dark-gray)}.contact-form-section{background:var(--light-gray);padding:60px 0}.form-container{max-width:600px;margin:0 auto;background:var(--white);padding:40px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.1)}.form-container h2{text-align:center;color:var(--primary-color);margin-bottom:30px;font-size:2rem}.form-group{margin-bottom:20px}.form-group input,.form-group textarea{width:100%;padding:15px;border:1px solid #ddd;border-radius:5px;font-size:16px;font-family:inherit}.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--primary-color)}.submit-btn{width:100%;background:var(--primary-color);color:var(--white);padding:15px;border:none;border-radius:5px;font-size:18px;cursor:pointer;transition:background 0.3s}.submit-btn:hover{background:#5a7a3f}.footer-section{background:var(--secondary-color);color:var(--white);padding:60px 0 20px}.footer-content{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px}.footer-logo{text-align:center}.footer-logo h3{background:var(--primary-color);color:var(--white);padding:15px 30px;border-radius:5px;font-size:1.5rem;margin-bottom:20px}.footer-contact{text-align:center}.footer-contact h4{font-size:1.5rem;margin-bottom:20px}.footer-contact p{margin-bottom:10px;font-size:16px}.footer-form{max-width:400px}.footer-form h4{margin-bottom:20px;color:var(--white)}.footer-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}.footer-form input{padding:10px;border:none;border-radius:3px;font-size:14px}.footer-form textarea{grid-column:1/-1;padding:10px;border:none;border-radius:3px;resize:vertical;min-height:80px}.footer-submit{background:var(--primary-color);color:var(--white);padding:10px 20px;border:none;border-radius:3px;cursor:pointer;font-size:14px}.footer-bottom{text-align:center;padding-top:20px;border-top:1px solid #444;font-size:14px}@media (max-width:768px){.nav-links{display:none;position:absolute;top:100%;left:0;width:100%;background:rgba(0,0,0,0.95);flex-direction:column;padding:20px 0}.nav-links.active{display:flex}.mobile-menu-btn{display:block}.hero-content h1{font-size:2.5rem}.hero-content p{font-size:1.2rem}.events-section{flex-direction:column}.events-image{order:2}.events-content{order:1;text-align:center}.events-content h2{font-size:2rem}.footer-content{flex-direction:column;gap:40px;text-align:center}.footer-form{max-width:100%}.footer-form-grid{grid-template-columns:1fr}}</style><!-- Zappy Analytics -->
+<script>
+(function() {
+  'use strict';
+  
+  // Configuration
+  var config = {
+    websiteId: '6a096e5a-fb01-4448-b507-46359b93e1ef',
+    apiUrl: 'http://localhost:5001/api/analytics/track',
+    sessionDuration: 30 * 60 * 1000, // 30 minutes
+    visitorDuration: 30 * 24 * 60 * 60 * 1000, // 30 days
+    trackPageViews: true,
+    trackClicks: true,
+    trackFormSubmissions: true
+  };
+  
+  // Generate or retrieve persistent visitor ID (30 days)
+  function getVisitorId() {
+    var visitorKey = 'zappy_visitor_' + config.websiteId;
+    var visitor = null;
+    
+    try {
+      visitor = localStorage.getItem(visitorKey);
+      if (visitor) {
+        var visitorData = JSON.parse(visitor);
+        var now = Date.now();
+        
+        // Check if visitor ID is still valid (30 days)
+        if (now - visitorData.created < config.visitorDuration) {
+          // Update last seen timestamp
+          visitorData.lastSeen = now;
+          localStorage.setItem(visitorKey, JSON.stringify(visitorData));
+          return visitorData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: LocalStorage not available');
+    }
+    
+    // Generate new visitor ID
+    var newVisitorId = 'zv_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      localStorage.setItem(visitorKey, JSON.stringify({
+        id: newVisitorId,
+        created: Date.now(),
+        lastSeen: Date.now()
+      }));
+    } catch (e) {
+      // Continue without local storage
+    }
+    
+    return newVisitorId;
+  }
+  
+  // Generate or retrieve session ID (30 minutes)
+  function getSessionId() {
+    var sessionKey = 'zappy_session_' + config.websiteId;
+    var session = null;
+    
+    try {
+      session = sessionStorage.getItem(sessionKey);
+      if (session) {
+        var sessionData = JSON.parse(session);
+        var now = Date.now();
+        
+        // Check if session is still valid
+        if (now - sessionData.timestamp < config.sessionDuration) {
+          // Update timestamp
+          sessionData.timestamp = now;
+          sessionStorage.setItem(sessionKey, JSON.stringify(sessionData));
+          return sessionData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: SessionStorage not available');
+    }
+    
+    // Generate new session ID
+    var newSessionId = 'zs_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      sessionStorage.setItem(sessionKey, JSON.stringify({
+        id: newSessionId,
+        timestamp: Date.now()
+      }));
+    } catch (e) {
+      // Continue without session storage
+    }
+    
+    return newSessionId;
+  }
+  
+  var visitorId = getVisitorId();
+  var sessionId = getSessionId();
+  
+  // Track an event
+  function trackEvent(eventType, data) {
+    data = data || {};
+    
+    var eventData = {
+      website_id: config.websiteId,
+      event_type: eventType,
+      page_path: window.location.pathname,
+      referrer: document.referrer || 'direct',
+      visitor_id: visitorId,
+      session_id: sessionId,
+      metadata: data
+    };
+    
+    // Use sendBeacon if available (better for page unload events)
+    if (navigator.sendBeacon) {
+      var blob = new Blob([JSON.stringify(eventData)], { type: 'application/json' });
+      navigator.sendBeacon(config.apiUrl, blob);
+    } else {
+      // Fallback to fetch
+      fetch(config.apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(eventData),
+        keepalive: true
+      }).catch(function(error) {
+        console.warn('Zappy Analytics: Failed to track event', error);
+      });
+    }
+  }
+  
+  // Track page view
+  if (config.trackPageViews) {
+    trackEvent('pageview', {
+      title: document.title,
+      url: window.location.href
+    });
+  }
+  
+  // Track clicks on important elements
+  if (config.trackClicks) {
+    document.addEventListener('click', function(e) {
+      var target = e.target;
+      
+      // Track button clicks (counted as actions)
+      if (target.tagName === 'BUTTON' || target.closest('button')) {
+        var button = target.tagName === 'BUTTON' ? target : target.closest('button');
+        trackEvent('click', {
+          element: 'button',
+          text: button.textContent.trim().substring(0, 100),
+          id: button.id || null,
+          class: button.className || null
+        });
+      }
+      
+      // Track link clicks (navigation - not counted as actions)
+      else if (target.tagName === 'A' || target.closest('a')) {
+        var link = target.tagName === 'A' ? target : target.closest('a');
+        trackEvent('navigation', {
+          element: 'link',
+          text: link.textContent.trim().substring(0, 100),
+          href: link.href,
+          external: link.hostname !== window.location.hostname
+        });
+      }
+    }, true);
+  }
+  
+  // Track form submissions
+  if (config.trackFormSubmissions) {
+    document.addEventListener('submit', function(e) {
+      var form = e.target;
+      
+      trackEvent('form_submit', {
+        form_id: form.id || null,
+        form_name: form.name || null,
+        form_action: form.action || null,
+        form_method: form.method || 'GET'
+      });
+    }, true);
+  }
+  
+  // Track time on page (send on page unload)
+  var pageLoadTime = Date.now();
+  
+  window.addEventListener('beforeunload', function() {
+    var timeOnPage = Math.floor((Date.now() - pageLoadTime) / 1000); // in seconds
+    
+    trackEvent('page_unload', {
+      time_on_page: timeOnPage,
+      page_path: window.location.pathname
+    });
+  });
+  
+  // Expose tracking function globally for custom events
+  window.zappyAnalytics = {
+    track: trackEvent,
+    getVisitorId: function() { return visitorId; },
+    getSessionId: function() { return sessionId; }
+  };
+  
+})();
+</script>
+<!-- End Zappy Analytics -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style id="zappy-mobile-submenu-styles">
+      /* Mobile submenu accordion styles */
+      @media (max-width: 768px) {
+        .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu {
+          position: static !important;
+          transform: none !important;
+          box-shadow: none !important;
+          background: transparent !important;
+          margin-top: 0 !important;
+          max-height: 0;
+          overflow: hidden;
+          opacity: 0;
+          visibility: hidden;
+          transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease, padding 0.3s ease;
+          padding: 0 !important;
+          border-radius: 0 !important;
+        }
+        .sub-menu.mobile-expanded {
+          max-height: 500px !important;
+          opacity: 1 !important;
+          visibility: visible !important;
+          padding: 8px 0 8px 16px !important;
+        }
+        [dir="rtl"] .sub-menu.mobile-expanded, html[lang="he"] .sub-menu.mobile-expanded, html[lang="ar"] .sub-menu.mobile-expanded {
+          padding: 8px 16px 8px 0 !important;
+        }
+        .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu {
+          opacity: 0; visibility: hidden; pointer-events: none;
+        }
+        .nav-menu li > .sub-menu.mobile-expanded, nav li > .sub-menu.mobile-expanded, .navbar li > .sub-menu.mobile-expanded, #navMenu li > .sub-menu.mobile-expanded {
+          opacity: 1 !important; visibility: visible !important; pointer-events: auto !important;
+        }
+        .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) {
+          display: flex !important; flex-wrap: wrap !important; align-items: center !important;
+        }
+        .nav-menu li:has(.sub-menu) > a, nav li:has(.sub-menu) > a, .navbar li:has(.sub-menu) > a, #navMenu li:has(.sub-menu) > a {
+          flex: 1 !important;
+        }
+        .mobile-submenu-toggle {
+          display: flex !important; align-items: center !important; justify-content: center !important;
+          width: 44px !important; height: 44px !important; background: transparent !important;
+          border: none !important; cursor: pointer !important; padding: 0 !important; margin: 0 !important;
+          flex-shrink: 0 !important; -webkit-tap-highlight-color: transparent;
+        }
+        .mobile-submenu-toggle::after {
+          content: '' !important; display: block !important; width: 0 !important; height: 0 !important;
+          border-left: 6px solid transparent !important; border-right: 6px solid transparent !important;
+          border-top: 7px solid currentColor !important; transition: transform 0.3s ease !important;
+        }
+        .mobile-submenu-toggle.expanded::after { transform: rotate(180deg) !important; }
+        .nav-menu li:has(.sub-menu) > .sub-menu, nav li:has(.sub-menu) > .sub-menu, .navbar li:has(.sub-menu) > .sub-menu, #navMenu li:has(.sub-menu) > .sub-menu {
+          flex-basis: 100% !important; width: 100% !important;
+        }
+        .sub-menu a { padding: 10px 0 !important; display: block !important; font-size: 14px !important; }
+        .sub-menu a:hover { background-color: transparent !important; }
+      }
+      @media (min-width: 769px) { .mobile-submenu-toggle { display: none !important; } }
+    </style>
+    <link rel="stylesheet" href="/styles.css">
+</head><body><header><nav><div class="contact-info"><span>0544-408400</span></div><ul class="nav-links" id="navLinks"><li><a href="/">דף הבית</a></li><li><a href="/%D7%90%D7%95%D7%93%D7%95%D7%AA">אודות</a></li><li><a href="/%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D">אירועים</a></li><li><a href="/%D7%92%D7%9C%D7%A8%D7%99%D7%94">גלריה</a></li><li><a href="/#contact">צור קשר</a></li></ul><button class="mobile-menu-btn" id="mobileMenuBtn">☰</button></nav></header><section class="hero-section"><div class="hero-content"><h1>אירועים</h1></div></section><main class="main-content"><div class="container"><section class="events-section"><div class="events-image"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect fill='%23f0f0f0' width='600' height='400'/%3E%3C/svg%3E" alt="שף מכין אוכל במטבח" data-placeholder="chef-1" data-context="Chef preparing food in kitchen with fresh vegetables and cooking equipment"></div><div class="events-content"><h2>השירו פרטים וזמני אלכלים במקדם</h2><p>יום א׳ מפגש מיוחד, למקור אירוע בעקבות אירוע<br>באוטנטיים ובטיפוסים<br>ביום 17:00-22:00</p></div></section></div></main><section class="contact-form-section"><div class="container"><div class="form-container"><h2>אירועים</h2><form><div class="form-group"><input type="text" placeholder="שם מלא" required></div><div class="form-group"><input type="email" placeholder="אימייל" required></div><div class="form-group"><input type="tel" placeholder="טלפון" required></div><div class="form-group"><input type="text" placeholder="חגיגי מיוחדת" required></div><div class="form-group"><input type="text" placeholder="מספר אורחים" required></div><div class="form-group"><textarea placeholder="פרטים נוספים על האירוע" rows="4"></textarea></div><button type="submit" class="submit-btn">שליחה</button></form></div></div></section><footer class="footer-section"><div class="container"><div class="footer-content"><div class="footer-logo"><h3>Pastella</h3><h4>0544-408400</h4><p>pastellatlv@gmail.com</p><p>שעות פעילות</p><p>יום א׳ מפגש מיוחד, למקור אירוע בעקבות אירוע<br>באוטנטיים ובטיפוסים</p><p>ביום 17:00-22:00</p><p>ירמיהו 22, תל אביב</p></div><div class="footer-form"><h4>השירו פרטים וזמני אלכלים במקדם</h4><div class="footer-form-grid"><input type="text" placeholder="שם מלא"><input type="tel" placeholder="טלפון"><input type="email" placeholder="אימייל"><textarea placeholder="פרטים נוספים על האירוע"></textarea></div><button class="footer-submit">שליחה</button></div></div><div class="footer-bottom"><p>מחכים לבקשות | Power by ZapRest</p></div></div></footer><script>document.getElementById('mobileMenuBtn').addEventListener('click',function(){const navLinks=document.getElementById('navLinks');navLinks.classList.toggle('active')});document.querySelectorAll('a[href^="#"]').forEach(anchor=>{anchor.addEventListener('click',function(e){e.preventDefault();const target=document.querySelector(this.getAttribute('href'));if(target){target.scrollIntoView({behavior:'smooth'})}})});</script>
+    <script id="zappy-mobile-submenu-script">
+    (function() {
+      function initMobileSubmenuToggles() {
+        if (window.innerWidth > 768) {
+          document.querySelectorAll('.mobile-submenu-toggle').forEach(function(btn) { btn.remove(); });
+          document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) { menu.classList.remove('mobile-expanded'); });
+          return;
+        }
+        var items = document.querySelectorAll('.nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu)');
+        items.forEach(function(li) {
+          if (li.querySelector('.mobile-submenu-toggle')) return;
+          var submenu = li.querySelector('.sub-menu');
+          var parentLink = li.querySelector(':scope > a');
+          if (!submenu || !parentLink) return;
+          var toggleBtn = document.createElement('button');
+          toggleBtn.className = 'mobile-submenu-toggle';
+          toggleBtn.setAttribute('aria-label', 'Toggle submenu');
+          toggleBtn.setAttribute('type', 'button');
+          parentLink.insertAdjacentElement('afterend', toggleBtn);
+          toggleBtn.addEventListener('click', function(e) {
+            e.preventDefault(); e.stopPropagation();
+            document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) {
+              if (menu !== submenu) { menu.classList.remove('mobile-expanded'); var t = menu.parentElement.querySelector('.mobile-submenu-toggle'); if(t) t.classList.remove('expanded'); }
+            });
+            submenu.classList.toggle('mobile-expanded');
+            toggleBtn.classList.toggle('expanded');
+          });
+        });
+      }
+      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileSubmenuToggles); }
+      else { initMobileSubmenuToggles(); }
+      var resizeTimer; window.addEventListener('resize', function() { clearTimeout(resizeTimer); resizeTimer = setTimeout(initMobileSubmenuToggles, 250); });
+    })();
+    </script>
+    <script src="/script.js"></script>
+</body></html>

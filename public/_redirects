@@ -1,0 +1,16 @@
+# Clean URL redirects for Render static hosting
+# These rewrite rules show clean URLs to users while serving .html files
+
+/%D7%90%D7%95%D7%93%D7%95%D7%AA  /page-2.html  200
+/%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D  /page-3.html  200
+/%D7%92%D7%9C%D7%A8%D7%99%D7%94  /page-4.html  200
+
+# Legal pages - redirect old .html URLs to friendly URLs
+/privacy.html  /privacy  301
+/accessibility.html  /accessibility  301
+/terms.html  /terms  301
+
+/  /index.html  200
+
+# 404 fallback
+/*  /index.html  404

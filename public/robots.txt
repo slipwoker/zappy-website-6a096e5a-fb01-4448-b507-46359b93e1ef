@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pastella-6a096e5a.zappy5.app/sitemap.xml
